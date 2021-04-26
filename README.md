@@ -83,11 +83,14 @@ Définir une façon de binder une valeur à une expression. Par exemple: [[ titl
 ### Installer le moteur pug dans le dossier 3tiers
     npm i pug
 Pour que pug retrouve les templates, il faut créer un dossier "views" au lieu du dossier "Templates". Pug ira chercher directement dans ce dossier.
-Pour l'utiliser, dans le index.js, ajouter un set à l'objet app, qui appelera pug. Lors de vos render indiquez en premier argument le nom de votre modele de template par exemple:    
-    res.render("test1", {})  
-ou si votre vue se trouve dans un sous dossier de views:   
-    res.render("students/test1")
+Pour l'utiliser, dans le index.js, ajouter un set à l'objet app, qui appelera pug. Lors de vos render indiquez en premier argument le nom de votre modele de template par exemple:  
 
+    res.render("test1", {})  
+
+ou si votre vue se trouve dans un sous dossier de views:   
+
+    res.render("students/test1", {})  
+    
 ## Création des controller
 _ Créez un dossier controllers  
 "TODO: A terminer"
