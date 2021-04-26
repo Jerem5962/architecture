@@ -102,13 +102,19 @@ _ Créez un dossier controllers
   
 Créer un fichier dans 3tiers appellé lab2.js par exemple.  
 A l'intérieur de ce fichier on va require mysql:  
+
     const mysql = require("mysql")  
-__Voir le fichier lab2.js pour plus de détails__  
+
+__*Voir le fichier lab2.js pour plus de détails*__  
+
 Création d'une variable de connexion:  
+
     var connection = mysql.createConnection([])  
+
 Indiquer dans le tableau les mêmes informations que dans le fichier lab2.js
 Utiliser la variable connection pour se connecter avec la méthode connect(). A l'interieur de cet appel de méthode, il est possible de loguer "Connecté" pour s'assurer que la connexion ait été établie.  
-Maintenat que c'est fonctionnel, nous pouvons séparer les fichiers.  
+Maintenant que c'est fonctionnel, nous pouvons séparer les fichiers.  
+
 _ Créer un dossier config  
 _ Y inclure un fichier database.js qui contiendra les informations de connection  
 
