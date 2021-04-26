@@ -1,4 +1,8 @@
-function list() {
+const connexion = require("../config/database");
+
+connexion.connect();
+
+const list = () => {
     return [
         "Jérémy",
         "Chris",
@@ -6,9 +10,22 @@ function list() {
     ]
 }
 
-function all(req, res) {
+const all = (req, res) => {
     console.log(req.query);
-    res.send("ok")
+    res.render("student/list", {students})
 }
 
-module.exports = { list, all }
+const allStudents = (req, res) => {
+
+    connexion.query("SELECT * FROM student", (err, results, fields) => {
+        //res.send("OK...")
+
+        var students = results.map(student => student.name)
+        res.render("student/list", {students})
+    })
+    connexion.end(() => {
+        console.log("Déconnecté de la BDD!");
+    })
+}
+
+module.exports = { list, all, allStudents }

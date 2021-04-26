@@ -81,3 +81,24 @@ Pour l'utiliser, dans le index.js, ajouter un set à l'objet app, qui appelera p
 ou si votre vue se trouve dans un sous dossier de views:   
     res.render("students/test1")
 
+## Création des controller
+_ Créez un dossier controllers  
+
+## Base de donnée
+### Installer la dépendance mysql
+*Lien utile* -> npmjs.com/package/mysql
+    npm i mysql    
+  
+Créer un fichier dans 3tiers appellé lab2.js par exemple.  
+A l'intérieur de ce fichier on va require mysql:  
+    const mysql = require("mysql")  
+__Voir le fichier lab2.js pour plus de détails__  
+Création d'une variable de connexion:  
+    var connection = mysql.createConnection([])  
+Indiquer dans le tableau les mêmes informations que dans le fichier lab2.js
+Utiliser la variable connection pour se connecter avec la méthode connect(). A l'interieur de cet appel de méthode, il est possible de loguer "Connecté" pour s'assurer que la connexion ait été établie.  
+Maintenat que c'est fonctionnel, nous pouvons séparer les fichiers.  
+_ Créer un dossier config  
+_ Y inclure un fichier database.js qui contiendra les informations de connection  
+
+Nous pouvons désormais utiliser cette connection directement dans le fichier StudentController.js
