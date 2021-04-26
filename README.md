@@ -67,17 +67,17 @@ __Pour éviter de fermer le serveur pour le relancer afin de prendre en compte l
 ## Créer des readBinding
 
 *Voir le fichier html test2.html pour mieux comprendre*  
-Définir une façon de binder une valeur à une expression. [[ title ]] 
+Définir une façon de binder une valeur à une expression. Par exemple: [[ title ]] 
 
 ## Utiliser des template Engine
 *Lien utile* -> expressjs.com/fr/guide/using-template-engines.html  
-pugjs.org/language
+-> pugjs.org/language
 
 ### Installer le moteur pug dans le dossier 3tiers
     npm i pug
 Pour que pug retrouve les templates, il faut créer un dossier "views" au lieu du dossier "Templates". Pg ira chercher directement dans ce dossier.
-Pour l'utiliser, dans le index.js, ajouter un set à l'objet app, qui appelera pug. Lors de vos render indiquez en premier argument le nom de votre modele de template par exemple:  
-    res.render("test1", {})
-ou si votre vue se trouve dans un sous dossier de views:  
+Pour l'utiliser, dans le index.js, ajouter un set à l'objet app, qui appelera pug. Lors de vos render indiquez en premier argument le nom de votre modele de template par exemple:    
+    res.render("test1", {})  
+ou si votre vue se trouve dans un sous dossier de views:   
     res.render("students/test1")
 
