@@ -22,10 +22,10 @@ client Teams <--> Serveur Teams (serveur SQL)
 # Création projet
 
 ## Vérifier version node: 
-_ node --version 
+    node --version 
 
 ## Vérifier version npm:
-_ npm --version
+    npm --version
 
 ## Mise en place d'un projet
 _ Création d'un dossier 3tiers pour créer à l'interieur un projet 3tiers et se rendre dedans.
