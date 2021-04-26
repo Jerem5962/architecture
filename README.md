@@ -28,10 +28,14 @@ client Teams <--> Serveur Teams (serveur SQL)
     npm --version
 
 ## Mise en place d'un projet
-_ Création d'un dossier 3tiers pour créer à l'interieur un projet 3tiers et se rendre dedans.
+_ Création d'un dossier 3tiers pour créer à l'interieur un projet 3tiers et se rendre dedans.  
+
     npm init -y  
-    (-y: pour repondre oui a chaques questions qui vont etre posées) -> créé un fichier package.json
+     
+    (-y: pour repondre oui a chaques questions qui vont etre posées) -> créé un fichier package.json  
+
     npm i express  
+
     (i: install, express: mini framework) -> installe node_module, fichier package-lock.json
 _ Créé un fichier index.js dans le dossier 3tiers
 

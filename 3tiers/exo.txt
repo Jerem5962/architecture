@@ -1,0 +1,10 @@
+*** Exo 1 ***
+Découvrez par vous-même les bases de l'ORM nodejs "Sequelize"
+https://sequelize.org/ en ajoutant une ou plusieurs routes dans l'application "3tiers".
+Ces routes appeleront des méthodes de contrôleurs se servant d'un modèle Student (à créer)
+afin de requêter votre base relationnelle et de renvoyer au navigateur web les résultants obtenus. 
+Exemples:
+- liste de tous les students
+- un student précis (par id)
+- liste des students âgés de plus de 30 ans
+- ...
