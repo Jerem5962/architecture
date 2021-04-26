@@ -31,7 +31,7 @@ client Teams <--> Serveur Teams (serveur SQL)
 _ Création d'un dossier 3tiers pour créer à l'interieur un projet 3tiers et se rendre dedans.  
 
     npm init -y  
-     
+
     (-y: pour repondre oui a chaques questions qui vont etre posées) -> créé un fichier package.json  
 
     npm i express  
@@ -40,13 +40,16 @@ _ Création d'un dossier 3tiers pour créer à l'interieur un projet 3tiers et s
 _ Créé un fichier index.js dans le dossier 3tiers
 
 Pour tester, dans le index.js, faire un console.log("Bonjour")  
-Pour lancer un exec : 
+Pour lancer un exec :  
+
     node <"nom de fichier + ext">  
     -> Renvoie en console: Bonjour
 
 Mettre en place un serveur avec express:  
+
     const express = require("express")  
-    au début du fichier
+    au début du fichier  
+
 express: Fonction express
 
     const app = express()
@@ -66,7 +69,7 @@ _ Y créer un fichier html
 Utilisation de app.render pour renvoyer une vue. Pour cela il faut créer un templating avec un moteur de rendue. Sans cela, on utilise un fileSystem "fs" c'est un module natif de nodeJs
 fs renvoie un Buffer, pour le convertir en chaine de caractère, il faut lui appliquer la méthode toString()
 
-__Pour éviter de fermer le serveur pour le relancer afin de prendre en compte les modifs coté serveur on peux se créer un fichier lab.js pour voir le résultat en console.__
+__Pour éviter de fermer le serveur pour le relancer afin de prendre en compte les modifs coté serveur on peut se créer un fichier lab.js pour voir le résultat en console.__
 
 ## Créer des readBinding
 
@@ -79,7 +82,7 @@ Définir une façon de binder une valeur à une expression. Par exemple: [[ titl
 
 ### Installer le moteur pug dans le dossier 3tiers
     npm i pug
-Pour que pug retrouve les templates, il faut créer un dossier "views" au lieu du dossier "Templates". Pg ira chercher directement dans ce dossier.
+Pour que pug retrouve les templates, il faut créer un dossier "views" au lieu du dossier "Templates". Pug ira chercher directement dans ce dossier.
 Pour l'utiliser, dans le index.js, ajouter un set à l'objet app, qui appelera pug. Lors de vos render indiquez en premier argument le nom de votre modele de template par exemple:    
     res.render("test1", {})  
 ou si votre vue se trouve dans un sous dossier de views:   
@@ -87,6 +90,7 @@ ou si votre vue se trouve dans un sous dossier de views:
 
 ## Création des controller
 _ Créez un dossier controllers  
+"TODO: A terminer"
 
 ## Base de donnée
 ### Installer la dépendance mysql
