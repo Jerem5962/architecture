@@ -1,0 +1,7 @@
+if error
+    p #{error}
+    a(href="/ORM/students") Retour à la liste
+else
+    h2 #{student.firstname}
+        p agé(e) de #{student.age} ans.
+        a(href="/ORM/students") Retour à la liste

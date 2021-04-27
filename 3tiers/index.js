@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const fs = require("fs")
-const { list, all, allStudents, ORMAllStudents } = require("./controllers/StudentController")
+const { list, all, allStudents, ORMAllStudents, ORMStudentById } = require("./controllers/StudentController")
 
 // Setting du moteur de rendue
 app.set("view engine", "pug")
@@ -68,3 +68,5 @@ app.get("/students", (req, res) => {
 app.get("/students/all", allStudents)
 
 app.get("/ORM/students", ORMAllStudents)
+
+app.get("/ORM/student/:id", ORMStudentById)

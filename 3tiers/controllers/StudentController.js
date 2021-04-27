@@ -35,4 +35,18 @@ const ORMAllStudents = (req, res) => {
     }); 
 }
 
-module.exports = { list, all, allStudents, ORMAllStudents }
+const ORMStudentById = (req, res) => {
+    var error
+    const student = Student.findByPk(req.params.id).then(student => {
+        if(student) {
+            res.render("student/show", {student, error})
+        } else {
+            error = "Désolé cet élève est inconu(e)"
+            res.render("student/show", {error})
+        }
+        
+    })
+    
+}
+
+module.exports = { list, all, allStudents, ORMAllStudents, ORMStudentById }

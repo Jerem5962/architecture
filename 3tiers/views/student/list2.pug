@@ -1,4 +1,5 @@
 h1 liste des students 
     ul 
         each student in students 
-            li #{student.firstname}
+            li 
+                a(href="/ORM/student/" + student.id) #{student.firstname}
