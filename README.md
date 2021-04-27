@@ -97,7 +97,7 @@ ou si votre vue se trouve dans un sous dossier de views:
 _ Créez un dossier controllers  
 A l'interieur de ce dossier, y créer un fichier StudentController.js.  
 Dans ce fichier, nous retrouverons tous nos controllers qui serviront à définir les datas à récupérer et le choix de la vue à transmettre à l'utilisateur.  
-J'explique un peu plus bas le fonctionnement dans la partie ORM.  
+J'explique un peu plus bas le fonctionnement dans la partie ORM. https://github.com/Jerem5962/architecture#base-de-donn%C3%A9e-avec-orm-sequelize   
 
 ## Base de donnée   
 
