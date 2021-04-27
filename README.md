@@ -77,8 +77,8 @@ __Pour éviter de fermer le serveur pour le relancer afin de prendre en compte l
 Définir une façon de binder une valeur à une expression. Par exemple: [[ title ]] 
 
 ## Utiliser des template Engine
-*Lien utile* -> expressjs.com/fr/guide/using-template-engines.html  
--> pugjs.org/language
+*Lien utile* -> https://expressjs.com/fr/guide/using-template-engines.html  
+-> https://pugjs.org/language
 
 ### Installer le moteur pug dans le dossier 3tiers
     npm i pug
@@ -97,7 +97,7 @@ _ Créez un dossier controllers
 
 ## Base de donnée
 ### Installer la dépendance mysql
-*Lien utile* -> npmjs.com/package/mysql
+*Lien utile* -> https://npmjs.com/package/mysql
     npm i mysql    
   
 Créer un fichier dans 3tiers appellé lab2.js par exemple.  
@@ -119,3 +119,21 @@ _ Créer un dossier config
 _ Y inclure un fichier database.js qui contiendra les informations de connection  
 
 Nous pouvons désormais utiliser cette connection directement dans le fichier StudentController.js
+
+## Utilisation ORM sequelize
+*lien utile* -> https://sequelize.org/  
+
+Sequelize est un ORM Node.js pour Postgres, MySql, MariaDb SQLite et Microsoft SQL Server.  
+Pour son installation:  
+
+    npm install sequelize  
+
+Il faut que le pilote mysql2 soit installé pour fonctionner avec sequelize.  
+
+    npm i mysql2  
+
+J'ai créé un dossier ORM comprenant un fichier connection.js pour faire mes essais de connection.  
+Il se peut qu'il y ai une erreur liée au code de test présent dans la documentation, j'ai dus retirer le await dans mes accolades "try / catch".  
+
+
+
