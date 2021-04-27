@@ -99,7 +99,7 @@ A l'interieur de ce dossier, y créer un fichier StudentController.js.
 Dans ce fichier, nous retrouverons tous nos controllers qui serviront à définir les datas à récupérer et le choix de la vue à transmettre à l'utilisateur.  
 J'explique un peu plus bas le fonctionnement dans la partie ORM.  
 
----------- ## Base de donnée ----------  
+## Base de donnée   
 
 ### Installer la dépendance mysql
 *Lien utile* -> https://npmjs.com/package/mysql  
@@ -126,7 +126,7 @@ _ Y inclure un fichier database.js qui contiendra les informations de connection
 
 Nous pouvons désormais utiliser cette connection directement dans le fichier StudentController.js
 
----------- ## Base de donnée avec ORM sequelize ----------  
+## Base de donnée avec ORM sequelize   
 
 *lien utile* -> https://sequelize.org/  
 
