@@ -1,15 +1,21 @@
 const { Student } = require("../models/Student");
-const { sequelize } = require("../config/ORM/connection");
+const { Sequelize } = require('sequelize');
+
+const sequelize = new Sequelize({
+    dialect: 'mysql',
+    host: "127.0.0.1",
+    database: 'archi',
+    username: "jerem",
+    password: "pass",
+    port: 3306
+});
 
 (() => {console.log("hello");})() // IIFE, methode anonyme qui s'execute elle meme
 
-(async () => {
-    await sequelize.sync();
-})()
+try {
+    sequelize.authenticate()
+    console.log("connection réussie ! ");
+} catch(error) {
+    console.error("echec connection: ", error);
+}
 
-// (async () => {
-//     await sequelize.sync();
-//     const user = await Student.findAll();
-//     console.log(user);
-
-// })();
