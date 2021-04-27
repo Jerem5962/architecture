@@ -1,17 +1,7 @@
 const connexion = require("../config/database");
-const sequelize = require("../config/ORM/connection");
-const Student = require("../models/Student")
+const { Student } = require("../models/Student")
 
 //connexion.connect();
-
-try {
-    sequelize.authenticate()
-    
-    sequelize.models.Student
-    console.log('Connection établie !');
-} catch (error) {
-    console.error('Erreur de connection:', error);
-}
 
 const list = () => {
     return [
@@ -40,12 +30,9 @@ const allStudents = (req, res) => {
 }
 
 const ORMAllStudents = (req, res) => {
-    //sequelize.sync();
     const students = Student.findAll().then(students => {
-        console.log(students);
-    }); 
     res.render("student/list2", {students})
-    
+    }); 
 }
 
 module.exports = { list, all, allStudents, ORMAllStudents }

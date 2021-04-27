@@ -1,44 +1,35 @@
 const { DataTypes, Model } = require('sequelize');
-const sequelize = require("../config/ORM/connection");
+const { Sequelize } = require('sequelize');
+
+const sequelize = new Sequelize({
+    dialect: 'mysql',
+    host: "127.0.0.1",
+    database: 'archi',
+    username: "jerem",
+    password: "pass",
+    port: 3306
+});
 
 const Student = sequelize.define("student", {
     lastname: {
         type: DataTypes.TEXT,
         allowNull: false,
-        get() {
-            const name = this.getDataValue(name);
-            return name ? name : null
-        }
     },
     firstname: {
         type: DataTypes.TEXT,
         allowNull: false,
-        get() {
-            const name = this.getDataValue(name);
-            return name ? name : null
-        }
     },
     email: {
         type: DataTypes.TEXT,
         allowNull: true,
-        get() {
-            const name = this.getDataValue(name);
-            return name ? name : null
-        }
     },
     age: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        get() {
-            const age = this.getDataValue(age)
-            return age ? age : null
-        }
     }
 }, {
     tableName: "student"
 });
-Student.sync()
 
-module.exports = Student
+module.exports = { Student, sequelize }
 
-// Correction
