@@ -69,7 +69,7 @@ _ Y créer un fichier html
 Utilisation de app.render pour renvoyer une vue. Pour cela il faut créer un templating avec un moteur de rendue. Sans cela, on utilise un fileSystem "fs" c'est un module natif de nodeJs
 fs renvoie un Buffer, pour le convertir en chaine de caractère, il faut lui appliquer la méthode toString()
 
-__Pour éviter de fermer le serveur pour le relancer afin de prendre en compte les modifs coté serveur on peut se créer un fichier lab.js pour voir le résultat en console.__
+__Pour éviter de fermer le serveur pour le relancer afin de prendre en compte les modifs coté serveur on peut se créer un fichier lab.js pour voir le résultat en console ou utiliser nodemon.__
 
 ## Créer des readBinding
 
@@ -80,8 +80,10 @@ Définir une façon de binder une valeur à une expression. Par exemple: [[ titl
 *Lien utile* -> https://expressjs.com/fr/guide/using-template-engines.html  
 -> https://pugjs.org/language
 
-### Installer le moteur pug dans le dossier 3tiers
-    npm i pug
+### Installer le moteur pug dans le dossier 3tiers  
+
+    npm i pug  
+
 Pour que pug retrouve les templates, il faut créer un dossier "views" au lieu du dossier "Templates". Pug ira chercher directement dans ce dossier.
 Pour l'utiliser, dans le index.js, ajouter un set à l'objet app, qui appelera pug. Lors de vos render indiquez en premier argument le nom de votre modele de template par exemple:  
 
@@ -93,9 +95,12 @@ ou si votre vue se trouve dans un sous dossier de views:
     
 ## Création des controller
 _ Créez un dossier controllers  
-"TODO: A terminer"
+A l'interieur de ce dossier, y créer un fichier StudentController.js.  
+Dans ce fichier, nous retrouverons tous nos controllers qui serviront à définir les datas à récupérer et le choix de la vue à transmettre à l'utilisateur.  
+J'explique un peu plus bas le fonctionnement dans la partie ORM.  
 
-## Base de donnée
+---------- ## Base de donnée ----------  
+
 ### Installer la dépendance mysql
 *Lien utile* -> https://npmjs.com/package/mysql  
 
@@ -121,7 +126,8 @@ _ Y inclure un fichier database.js qui contiendra les informations de connection
 
 Nous pouvons désormais utiliser cette connection directement dans le fichier StudentController.js
 
-## Utilisation ORM sequelize
+---------- ## Base de donnée avec ORM sequelize ----------  
+
 *lien utile* -> https://sequelize.org/  
 
 Sequelize est un ORM Node.js pour Postgres, MySql, MariaDb SQLite et Microsoft SQL Server.  
@@ -133,8 +139,66 @@ Il faut que le pilote mysql2 soit installé pour fonctionner avec sequelize.
 
     npm i mysql2  
 
-J'ai créé un dossier ORM comprenant un fichier connection.js pour faire mes essais de connection.  
-Il se peut qu'il y ai une erreur liée au code de test présent dans la documentation, j'ai dus retirer le await dans mes accolades "try / catch".  
+Créer un dossier models qui contiendra les modèles à utiliser pour nos students. Y créer un fichier Student.js.  
+Dans ce fichier, on importe Sequelize qui nous servira d'instancier un objet sequelize pour la relation avec la tale student en bdd.  
+
+    const { Sequelize } = require('sequelize');  
+
+    const sequelize = new Sequelize({
+    dialect: 'mysql',
+    host: "127.0.0.1",
+    database: 'archi',
+    username: user,
+    password: password,
+    port: 3306
+    });  
+
+Pour définir notre objet student, nous utilisons la méthode define de notre objet sequelize:  
+
+    const Student = sequelize.define("student", {
+    lastname: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
+    firstname: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+    },
+    email: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+    },
+    age: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    }
+    }, {
+        tableName: "student"
+    });  
+
+Le dernier paramètre "tableName" est à indiquer si l'on souhaite utiliser une table existante. Pour appeller notre table avec le même nom que notre objet student, il faut remplacer tableName par "freezeTableName: true".  
+Exporter notre modèle ainsi que sequelize afin de l'utiliser dans nos controllers.  
+
+Dans le fichier StudentController, importer le modèle Student.  
+
+    const { Student } = require("../models/Student");  
+
+Désormais notre modèle sequelize dispose de méthode servant à sélectionner les datas souhaitées en bdd. (findAll, findByPk, findOne, findOrCreate...)
+
+Exemple pour mon controller ORMStudentById:  
+
+    const ORMStudentById = (req, res) => {
+        var error
+        const student = Student.findByPk(req.params.id).then(student => {
+            if(student) {
+                res.render("student/show", {student, error})
+            } else {
+                error = "Désolé cet élève est inconu(e)"
+                res.render("student/show", {error})
+            }
+        })
+    }  
+
 
 ----------------------------------------------------------
 

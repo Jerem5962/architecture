@@ -44,9 +44,7 @@ const ORMStudentById = (req, res) => {
             error = "Désolé cet élève est inconu(e)"
             res.render("student/show", {error})
         }
-        
     })
-    
 }
 
 module.exports = { list, all, allStudents, ORMAllStudents, ORMStudentById }
