@@ -1,10 +1,26 @@
-const { Sequelize, DataTypes, Model } = require('sequelize');
-const sequelize = new Sequelize('mysql::memory');
+const { DataTypes, Model } = require('sequelize');
+const sequelize = require("../config/ORM/connection");
 
-
-var Student = sequelize.define("student", {
-    name: {
+const Student = sequelize.define("student", {
+    lastname: {
         type: DataTypes.TEXT,
+        allowNull: false,
+        get() {
+            const name = this.getDataValue(name);
+            return name ? name : null
+        }
+    },
+    firstname: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        get() {
+            const name = this.getDataValue(name);
+            return name ? name : null
+        }
+    },
+    email: {
+        type: DataTypes.TEXT,
+        allowNull: true,
         get() {
             const name = this.getDataValue(name);
             return name ? name : null
@@ -12,6 +28,7 @@ var Student = sequelize.define("student", {
     },
     age: {
         type: DataTypes.INTEGER,
+        allowNull: true,
         get() {
             const age = this.getDataValue(age)
             return age ? age : null
@@ -20,5 +37,8 @@ var Student = sequelize.define("student", {
 }, {
     tableName: "student"
 });
-sequelize.models.Student
+Student.sync()
+
 module.exports = Student
+
+// Correction

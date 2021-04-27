@@ -1,12 +1,12 @@
 const { Sequelize } = require('sequelize');
-const log = require("../../data.json");
+const log = require("../../data/data.json");
 
 const sequelize = new Sequelize({
     dialect: 'mysql',
     host: "localhost",
     database: 'archi',
-    username: log.user,
-    password: log.password,
+    username: "jerem",
+    password: "pass",
     port: 3306
 });
 

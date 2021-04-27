@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const fs = require("fs")
-//const db = require("./models")
 const { list, all, allStudents, ORMAllStudents } = require("./controllers/StudentController")
 
 // Setting du moteur de rendue

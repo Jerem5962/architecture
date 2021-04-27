@@ -97,7 +97,8 @@ _ Créez un dossier controllers
 
 ## Base de donnée
 ### Installer la dépendance mysql
-*Lien utile* -> https://npmjs.com/package/mysql
+*Lien utile* -> https://npmjs.com/package/mysql  
+
     npm i mysql    
   
 Créer un fichier dans 3tiers appellé lab2.js par exemple.  
@@ -134,6 +135,54 @@ Il faut que le pilote mysql2 soit installé pour fonctionner avec sequelize.
 
 J'ai créé un dossier ORM comprenant un fichier connection.js pour faire mes essais de connection.  
 Il se peut qu'il y ai une erreur liée au code de test présent dans la documentation, j'ai dus retirer le await dans mes accolades "try / catch".  
+
+----------------------------------------------------------
+
+# 2eme partie  
+
+Utilisation d'un framework MVC, sailsjs
+SE DEPLACER A LA RACINE DU PROJET, A LA MEME HAUTEUR QUE LE DOSSIER 3tiers
+
+Installation de sailsjs:  
+
+    npm install sails -g  
+
+_ -g pour l'installation en global  
+
+Création d'un projet avec sailsjs  
+
+    sails new studentApi  
+
+Se rendre dans le nouveau dossier créé.  
+Pour lancer un serveur:  
+
+    sails lift  
+
+Pour générer un controller:  
+
+    sails generate controller <nomDuController>  
+
+Permet de créer un controller siimple et vide.  
+
+Pour générer un controller un peu plus riche, il faut lui ajouter une action dna sla commande:  
+
+    sails generate controller <nomDuController> index  
+
+Pour créer des routes, se rendre dans le fichier:  
+
+    config/routes.js  
+
+A l'intérieur de se fichier on peut créer nos routes, reliée ou non a des controllers.  
+
+Création de model:  
+
+    sails generate model <nomDeModel>  
+
+
+
+
+
+
 
 
 

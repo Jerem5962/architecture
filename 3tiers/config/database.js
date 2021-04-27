@@ -1,4 +1,4 @@
-const log = require("../data.json") // Création d'un fichier de data, ne pas oublier de le mettre dans le gitignore!
+const log = require("../data/data.json") // Création d'un fichier de data, ne pas oublier de le mettre dans le gitignore!
 const mysql = require("mysql");
 
 var connection = mysql.createConnection({

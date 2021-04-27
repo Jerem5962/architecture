@@ -6,6 +6,8 @@ const Student = require("../models/Student")
 
 try {
     sequelize.authenticate()
+    
+    sequelize.models.Student
     console.log('Connection établie !');
 } catch (error) {
     console.error('Erreur de connection:', error);
@@ -38,14 +40,10 @@ const allStudents = (req, res) => {
 }
 
 const ORMAllStudents = (req, res) => {
-    const students = Student.findAll().then(student => {
-        console.log(student);
-    });
-    // Student.sequelize.sync().then((req,res) => {
-    //     //var students = req.student
-    //     console.log(req);
-    // })
-    console.log(Student);
+    //sequelize.sync();
+    const students = Student.findAll().then(students => {
+        console.log(students);
+    }); 
     res.render("student/list2", {students})
     
 }
