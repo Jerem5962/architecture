@@ -242,6 +242,35 @@ Création de model:
 
     sails generate model <nomDeModel>  
 
+## Middleware
+
+Sails permet d'utiliser des middlewares, dans config/http.js
+
+Les middlewares permettent d'intercepter une requête http et de la traiter, la modifier ou la vérifier selon le middlware que l'on met en place.
+
+Création d'un middleware, ouvrir le fichier http.js, trouver le tableau order, c'est ce tableau qui indique quels middleware nous utilisons.  
+
+### Création d'un middleware  
+Ajouter au tableau order, "demoLogger".  
+
+    order: [
+    "demoLogger"
+    //   'cookieParser',
+    //   'session',
+    //   'bodyParser',
+    //   'compress',
+    //   'poweredBy',
+    //   'router',
+    //   'www',
+    //   'favicon',
+    ],  
+
+En dessous de ce tableau nous allons définir le middleware.  
+TODO: A TERMINER
+
+## C# 
+
+
 
 
 

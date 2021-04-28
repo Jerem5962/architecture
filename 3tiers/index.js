@@ -70,3 +70,5 @@ app.get("/students/all", allStudents)
 app.get("/ORM/students", ORMAllStudents)
 
 app.get("/ORM/student/:id", ORMStudentById)
+
+app.post("/ORM/student/:id", ORMStudentById)

@@ -29,7 +29,8 @@ module.exports.http = {
     *                                                                          *
     ***************************************************************************/
 
-    // order: [
+    order: [
+      "demoLogger"
     //   'cookieParser',
     //   'session',
     //   'bodyParser',
@@ -38,7 +39,7 @@ module.exports.http = {
     //   'router',
     //   'www',
     //   'favicon',
-    // ],
+    ],
 
 
     /***************************************************************************
@@ -54,6 +55,21 @@ module.exports.http = {
     //   var middlewareFn = skipper({ strict: true });
     //   return middlewareFn;
     // })(),
+
+    demoLogger: (req, res, next) => {
+      console.log(req.method, req.url);
+      if(ua.includes('curl')) {
+
+        axios
+          .get("https://jsonplaceholder.typicode.com/todos/1")
+          .then(response => {
+            const todoTitle
+          })
+
+      }
+
+      return next()
+    }
 
   },
 
